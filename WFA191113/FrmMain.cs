@@ -18,6 +18,28 @@ namespace WFA191113
         {
             InitializeComponent();
             conn = new SqlConnection(@"SERVER=(localdb)\MSSQLLocalDB;DATABASE=naplo;");
+            FillRtb();
+        }
+
+        private void FillRtb()
+        {
+            rtbJegyek.Clear();
+            conn.Open();
+            var cmd = new SqlCommand("SELECT * FROM jegyek;", conn);
+            var r = cmd.ExecuteReader();
+            while (r.Read())
+            {
+                rtbJegyek.Text += string.Format(
+                    "{0, -18}   {1,9}   {2, 19}   {3}   {4}\n",
+                    r[1],
+                    r.GetDateTime(2).ToString("MMM dd"),
+                    r[3],
+                    r.GetBoolean(4) ? "TZ" : "  ", 
+                    r[5]);
+
+                dgvJegyek.Rows.Add(r[0], r[1], r[2], r[3], r[4], r[5]);
+            }
+            conn.Close();
         }
 
         private void btnUjJegy_Click(object sender, EventArgs e)
@@ -35,7 +57,13 @@ namespace WFA191113
 
             conn.Close();
 
-            MessageBox.Show("adatok rögzítése megtö9rtént!");
+            MessageBox.Show("adatok rögzítése megtörtént!");
+            FillRtb();
+        }
+
+        private void dgvJegyek_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show(dgvJegyek[e.ColumnIndex, e.RowIndex].Value.ToString());
         }
     }
 }

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.tbNev = new System.Windows.Forms.TextBox();
             this.dtpDatum = new System.Windows.Forms.DateTimePicker();
@@ -39,7 +41,15 @@
             this.tbTema = new System.Windows.Forms.TextBox();
             this.rtbJegyek = new System.Windows.Forms.RichTextBox();
             this.btnUjJegy = new System.Windows.Forms.Button();
+            this.dgvJegyek = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nudJegy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJegyek)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -146,9 +156,10 @@
             // 
             // rtbJegyek
             // 
+            this.rtbJegyek.Font = new System.Drawing.Font("Consolas", 14F);
             this.rtbJegyek.Location = new System.Drawing.Point(12, 217);
             this.rtbJegyek.Name = "rtbJegyek";
-            this.rtbJegyek.Size = new System.Drawing.Size(857, 299);
+            this.rtbJegyek.Size = new System.Drawing.Size(857, 141);
             this.rtbJegyek.TabIndex = 5;
             this.rtbJegyek.Text = "";
             // 
@@ -163,11 +174,93 @@
             this.btnUjJegy.UseVisualStyleBackColor = true;
             this.btnUjJegy.Click += new System.EventHandler(this.btnUjJegy_Click);
             // 
+            // dgvJegyek
+            // 
+            this.dgvJegyek.AllowUserToAddRows = false;
+            this.dgvJegyek.AllowUserToDeleteRows = false;
+            this.dgvJegyek.AllowUserToResizeColumns = false;
+            this.dgvJegyek.AllowUserToResizeRows = false;
+            this.dgvJegyek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvJegyek.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvJegyek.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvJegyek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvJegyek.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvJegyek.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvJegyek.Location = new System.Drawing.Point(12, 377);
+            this.dgvJegyek.Name = "dgvJegyek";
+            this.dgvJegyek.RowHeadersVisible = false;
+            this.dgvJegyek.RowHeadersWidth = 51;
+            this.dgvJegyek.RowTemplate.Height = 24;
+            this.dgvJegyek.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvJegyek.Size = new System.Drawing.Size(857, 257);
+            this.dgvJegyek.TabIndex = 7;
+            this.dgvJegyek.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJegyek_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 30F;
+            this.Column1.HeaderText = "id";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Név";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Dátum";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Téma";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 30F;
+            this.Column5.HeaderText = "TZ?";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.FillWeight = 30F;
+            this.Column6.HeaderText = "Jegy";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 529);
+            this.ClientSize = new System.Drawing.Size(1042, 646);
+            this.Controls.Add(this.dgvJegyek);
             this.Controls.Add(this.btnUjJegy);
             this.Controls.Add(this.rtbJegyek);
             this.Controls.Add(this.cbTz);
@@ -182,6 +275,7 @@
             this.Name = "FrmMain";
             this.Text = "Naplo";
             ((System.ComponentModel.ISupportInitialize)(this.nudJegy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJegyek)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,6 +294,13 @@
         private System.Windows.Forms.TextBox tbTema;
         private System.Windows.Forms.RichTextBox rtbJegyek;
         private System.Windows.Forms.Button btnUjJegy;
+        private System.Windows.Forms.DataGridView dgvJegyek;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }
 
